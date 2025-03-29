@@ -1,0 +1,570 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		4AF05EFB2D9826B2008567C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AF05ED82D9826B1008567C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AF05EDF2D9826B1008567C6;
+			remoteInfo = "HappyDownStages-swift";
+		};
+		4AF05F052D9826B2008567C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4AF05ED82D9826B1008567C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AF05EDF2D9826B1008567C6;
+			remoteInfo = "HappyDownStages-swift";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4AF05EE02D9826B1008567C6 /* HappyDownStages-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HappyDownStages-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AF05EFA2D9826B2008567C6 /* HappyDownStages-swiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HappyDownStages-swiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AF05F042D9826B2008567C6 /* HappyDownStages-swiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "HappyDownStages-swiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4AF05F0C2D9826B2008567C6 /* Exceptions for "HappyDownStages-swift" folder in "HappyDownStages-swift" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 4AF05EDF2D9826B1008567C6 /* HappyDownStages-swift */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4AF05EE22D9826B1008567C6 /* HappyDownStages-swift */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4AF05F0C2D9826B2008567C6 /* Exceptions for "HappyDownStages-swift" folder in "HappyDownStages-swift" target */,
+			);
+			path = "HappyDownStages-swift";
+			sourceTree = "<group>";
+		};
+		4AF05EFD2D9826B2008567C6 /* HappyDownStages-swiftTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "HappyDownStages-swiftTests";
+			sourceTree = "<group>";
+		};
+		4AF05F072D9826B2008567C6 /* HappyDownStages-swiftUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "HappyDownStages-swiftUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4AF05EDD2D9826B1008567C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AF05EF72D9826B2008567C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AF05F012D9826B2008567C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4AF05ED72D9826B1008567C6 = {
+			isa = PBXGroup;
+			children = (
+				4AF05EE22D9826B1008567C6 /* HappyDownStages-swift */,
+				4AF05EFD2D9826B2008567C6 /* HappyDownStages-swiftTests */,
+				4AF05F072D9826B2008567C6 /* HappyDownStages-swiftUITests */,
+				4AF05EE12D9826B1008567C6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4AF05EE12D9826B1008567C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4AF05EE02D9826B1008567C6 /* HappyDownStages-swift.app */,
+				4AF05EFA2D9826B2008567C6 /* HappyDownStages-swiftTests.xctest */,
+				4AF05F042D9826B2008567C6 /* HappyDownStages-swiftUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4AF05EDF2D9826B1008567C6 /* HappyDownStages-swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AF05F0D2D9826B2008567C6 /* Build configuration list for PBXNativeTarget "HappyDownStages-swift" */;
+			buildPhases = (
+				4AF05EDC2D9826B1008567C6 /* Sources */,
+				4AF05EDD2D9826B1008567C6 /* Frameworks */,
+				4AF05EDE2D9826B1008567C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				4AF05EE22D9826B1008567C6 /* HappyDownStages-swift */,
+			);
+			name = "HappyDownStages-swift";
+			packageProductDependencies = (
+			);
+			productName = "HappyDownStages-swift";
+			productReference = 4AF05EE02D9826B1008567C6 /* HappyDownStages-swift.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4AF05EF92D9826B2008567C6 /* HappyDownStages-swiftTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AF05F122D9826B2008567C6 /* Build configuration list for PBXNativeTarget "HappyDownStages-swiftTests" */;
+			buildPhases = (
+				4AF05EF62D9826B2008567C6 /* Sources */,
+				4AF05EF72D9826B2008567C6 /* Frameworks */,
+				4AF05EF82D9826B2008567C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4AF05EFC2D9826B2008567C6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4AF05EFD2D9826B2008567C6 /* HappyDownStages-swiftTests */,
+			);
+			name = "HappyDownStages-swiftTests";
+			packageProductDependencies = (
+			);
+			productName = "HappyDownStages-swiftTests";
+			productReference = 4AF05EFA2D9826B2008567C6 /* HappyDownStages-swiftTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4AF05F032D9826B2008567C6 /* HappyDownStages-swiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AF05F152D9826B2008567C6 /* Build configuration list for PBXNativeTarget "HappyDownStages-swiftUITests" */;
+			buildPhases = (
+				4AF05F002D9826B2008567C6 /* Sources */,
+				4AF05F012D9826B2008567C6 /* Frameworks */,
+				4AF05F022D9826B2008567C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4AF05F062D9826B2008567C6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4AF05F072D9826B2008567C6 /* HappyDownStages-swiftUITests */,
+			);
+			name = "HappyDownStages-swiftUITests";
+			packageProductDependencies = (
+			);
+			productName = "HappyDownStages-swiftUITests";
+			productReference = 4AF05F042D9826B2008567C6 /* HappyDownStages-swiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4AF05ED82D9826B1008567C6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					4AF05EDF2D9826B1008567C6 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					4AF05EF92D9826B2008567C6 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 4AF05EDF2D9826B1008567C6;
+					};
+					4AF05F032D9826B2008567C6 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 4AF05EDF2D9826B1008567C6;
+					};
+				};
+			};
+			buildConfigurationList = 4AF05EDB2D9826B1008567C6 /* Build configuration list for PBXProject "HappyDownStages-swift" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4AF05ED72D9826B1008567C6;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 4AF05EE12D9826B1008567C6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4AF05EDF2D9826B1008567C6 /* HappyDownStages-swift */,
+				4AF05EF92D9826B2008567C6 /* HappyDownStages-swiftTests */,
+				4AF05F032D9826B2008567C6 /* HappyDownStages-swiftUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4AF05EDE2D9826B1008567C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AF05EF82D9826B2008567C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AF05F022D9826B2008567C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4AF05EDC2D9826B1008567C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AF05EF62D9826B2008567C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4AF05F002D9826B2008567C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4AF05EFC2D9826B2008567C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AF05EDF2D9826B1008567C6 /* HappyDownStages-swift */;
+			targetProxy = 4AF05EFB2D9826B2008567C6 /* PBXContainerItemProxy */;
+		};
+		4AF05F062D9826B2008567C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4AF05EDF2D9826B1008567C6 /* HappyDownStages-swift */;
+			targetProxy = 4AF05F052D9826B2008567C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4AF05F0E2D9826B2008567C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "HappyDownStages-swift/HappyDownStages_swift.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HappyDownStages-swift/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.irons.HappyDownStages-swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4AF05F0F2D9826B2008567C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "HappyDownStages-swift/HappyDownStages_swift.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HappyDownStages-swift/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.irons.HappyDownStages-swift";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4AF05F102D9826B2008567C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4AF05F112D9826B2008567C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4AF05F132D9826B2008567C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.irons.HappyDownStages-swiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HappyDownStages-swift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HappyDownStages-swift";
+			};
+			name = Debug;
+		};
+		4AF05F142D9826B2008567C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.irons.HappyDownStages-swiftTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HappyDownStages-swift.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/HappyDownStages-swift";
+			};
+			name = Release;
+		};
+		4AF05F162D9826B2008567C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.irons.HappyDownStages-swiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "HappyDownStages-swift";
+			};
+			name = Debug;
+		};
+		4AF05F172D9826B2008567C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.irons.HappyDownStages-swiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "HappyDownStages-swift";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4AF05EDB2D9826B1008567C6 /* Build configuration list for PBXProject "HappyDownStages-swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AF05F102D9826B2008567C6 /* Debug */,
+				4AF05F112D9826B2008567C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AF05F0D2D9826B2008567C6 /* Build configuration list for PBXNativeTarget "HappyDownStages-swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AF05F0E2D9826B2008567C6 /* Debug */,
+				4AF05F0F2D9826B2008567C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AF05F122D9826B2008567C6 /* Build configuration list for PBXNativeTarget "HappyDownStages-swiftTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AF05F132D9826B2008567C6 /* Debug */,
+				4AF05F142D9826B2008567C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4AF05F152D9826B2008567C6 /* Build configuration list for PBXNativeTarget "HappyDownStages-swiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4AF05F162D9826B2008567C6 /* Debug */,
+				4AF05F172D9826B2008567C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4AF05ED82D9826B1008567C6 /* Project object */;
+}
