@@ -11,7 +11,7 @@ class CommonUtil: SKSpriteNode {
 
     static let shared = CommonUtil()
 
-    var SLIDERSPEED: Float = 0.0
+    var SLIDERSPEED: CGFloat = 0.0
 
     private init() {
         super.init(texture: nil, color: .clear, size: .zero)
