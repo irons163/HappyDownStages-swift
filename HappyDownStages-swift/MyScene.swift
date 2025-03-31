@@ -219,7 +219,7 @@ class MyScene: SKScene {
 
     private func setupGame() {
         // Reset Game State Variables
-        baseSpeed = sceneWidth / 240.0
+        baseSpeed = sqrt(sceneWidth / 200.0) * 2
         speed = baseSpeed // Initial speed
         playerDownOnFootBoard = false
         playerStandOnFootboard = false
@@ -233,7 +233,7 @@ class MyScene: SKScene {
         scoreMultiple = 100
         downSpeed = baseSpeed // Falling speed related to base speed
         commonUtil.SLIDERSPEED = baseSpeed
-        moveSpeed = commonUtil.SLIDERSPEED * 3 + CGFloat(level) * 0.6 // Player horizontal speed
+        moveSpeed = commonUtil.SLIDERSPEED * 1.5 // Player horizontal speed
         MyScene.gameStop = false
         isMoving = false
         isGameFinish = false
@@ -274,9 +274,8 @@ class MyScene: SKScene {
         // Initial Footboard Setup
         let initialX: CGFloat = sceneWidth / 2 - footboardWidth / 2
         initialFootboard = Footboard(texture: nil, size: CGSize(width: footboardWidth, height: footboardHeight)) // Assuming Footboard has an init
-        initialFootboard?.setFrame(x: initialX, y: 0 + footboardHeight, h: footboardHeight, w: footboardWidth) // Y adjusted for anchor point? Check Footboard.setFrame
+        initialFootboard?.setFrame(x: initialX, y: 200 + footboardHeight, h: footboardHeight, w: footboardWidth) // Y adjusted for anchor point? Check Footboard.setFrame
         initialFootboard?.anchorPoint = CGPoint(x: 0, y: 1) // Top-left anchor
-        initialFootboard?.position = CGPoint(x: initialX, y: 0 + footboardHeight) // Set position based on anchor
         initialFootboard?.setWhich(0) // Normal footboard
         initialFootboard?.setToolNum(Footboard.NOTOOL) // Assuming NOTOOL maps to noTool
 
@@ -289,7 +288,8 @@ class MyScene: SKScene {
             print("Error: Could not create initial footboard")
             return
         }
-
+        
+        createFootboards(offsetY: 100)
 
         // Player Setup (Ensure bitmapUtil provides textures/sizes)
         guard let playerTexture = bitmapUtil.player_girl_left01_bitmap,
@@ -299,7 +299,7 @@ class MyScene: SKScene {
         }
         let playerInitialX = sceneWidth / 2
         // Place player slightly above the initial footboard
-        let playerInitialY = (initialFootboard?.position.y ?? 0) + playerSize.height + 80 // Adjust Y based on anchor and desired position
+        let playerInitialY = (initialFootboard?.position.y ?? 0) + playerSize.height + 100 // Adjust Y based on anchor and desired position
 
         player = Player(texture: playerTexture, size: playerSize) // Assuming Player init
         player?.initPlayer(x: playerInitialX, y: playerInitialY)
@@ -479,7 +479,7 @@ class MyScene: SKScene {
         lastSpawnTimeInterval += timeSinceLast
         lastSpawnCreateFootboardTimeInterval += timeSinceLast
         
-        guard lastSpawnTimeInterval >= 0.1 else {
+        guard lastSpawnTimeInterval >= 0.025 else {
             return
         }
         
@@ -492,7 +492,7 @@ class MyScene: SKScene {
         // Throttle footboard creation based on time/distance scrolled
         // Obj-C used drawCount % interval. Let's use time interval for smoother scaling.
         // Calculate interval based on speed. Faster speed -> shorter interval.
-        let footboardCreationInterval = TimeInterval( (baseSpeed * 6 / speed) )
+        let footboardCreationInterval = TimeInterval( (baseSpeed / speed) )
         if lastSpawnCreateFootboardTimeInterval > footboardCreationInterval {
             lastSpawnCreateFootboardTimeInterval = 0 // Reset timer
             createFootboards()
@@ -561,7 +561,7 @@ class MyScene: SKScene {
          //    secondBackgroundNode?.texture = SKTexture(imageNamed: getRandomBgResId())
     }
 
-    private func createFootboards() {
+    private func createFootboards(offsetY: CGFloat = 0) {
         guard MyScene.gameFlag else { return }
         guard !currentXs.isEmpty else {
              print("Warning: currentXs is empty, cannot create new footboards.")
@@ -633,7 +633,7 @@ class MyScene: SKScene {
 
                  // --- Create the actual Footboard ---
                  // Spawn below the screen view
-                 let spawnY: CGFloat = -footboardHeight // Adjust if anchor point is not (0,1)
+                 let spawnY: CGFloat = offsetY - footboardHeight // Adjust if anchor point is not (0,1)
 
                  // NSLog("new footboard X = %f", newX) // Use print() in Swift
                  print("New footboard X = \(newX)")

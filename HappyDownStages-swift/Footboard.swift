@@ -101,35 +101,35 @@ class Footboard: SKSpriteNode {
         
         switch which {
         case 1:
-            switch animStep % 3 {
-            case 0: bitmap = bitmapUtil.footboard_moving_left1_bitmap
-            case 1: bitmap = bitmapUtil.footboard_moving_left2_bitmap
+            switch animStep % 9 {
+            case 0, 1, 2: bitmap = bitmapUtil.footboard_moving_left1_bitmap
+            case 3, 4, 5: bitmap = bitmapUtil.footboard_moving_left2_bitmap
             default: bitmap = bitmapUtil.footboard_moving_left3_bitmap
             }
-            animStep = (animStep + 1) % 3
+            animStep = (animStep + 1) % 9
         case 2:
-            switch animStep % 3 {
-            case 0: bitmap = bitmapUtil.footboard_moving_right1_bitmap
-            case 1: bitmap = bitmapUtil.footboard_moving_right2_bitmap
+            switch animStep % 9 {
+            case 0, 1, 2: bitmap = bitmapUtil.footboard_moving_right1_bitmap
+            case 3, 4, 5: bitmap = bitmapUtil.footboard_moving_right2_bitmap
             default: bitmap = bitmapUtil.footboard_moving_right3_bitmap
             }
-            animStep = (animStep + 1) % 3
+            animStep = (animStep + 1) % 9
         case 3:
             if animStep < 10 {
                 bitmap = bitmap1
             } else if animStep < 20 {
                 bitmap = bitmap2
-            } else if animStep < 28 {
+            } else if animStep < 30 {
                 bitmap = bitmap3
             } else {
                 bitmap = nil
             }
         case 4:
-            if animStep < 10 {
+            if animStep < 2 {
                 bitmap = bitmap1
-            } else if animStep < 20 {
+            } else if animStep < 4 {
                 bitmap = bitmap2
-            } else if animStep < 28 {
+            } else if animStep < 6 {
                 bitmap = bitmap3
             } else {
                 bitmap = nil

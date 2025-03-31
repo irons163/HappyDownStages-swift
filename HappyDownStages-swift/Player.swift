@@ -80,14 +80,12 @@ class Player: SKSpriteNode {
             self.texture = walkBitmap02
             walkCount = 0
         } else {
-            if walkCount % 2 == 0 {
-                self.texture = walkBitmap02
-            } else if walkCount % 3 == 0 {
-                self.texture = walkBitmap01
-            } else {
-                self.texture = walkBitmap03
+            switch walkCount % 9 {
+            case 0, 1, 2: texture = walkBitmap01
+            case 3, 4, 5: texture = walkBitmap02
+            default: texture = walkBitmap03
             }
-            walkCount += 1
+            walkCount = (walkCount + 1) % 9
         }
     }
 
