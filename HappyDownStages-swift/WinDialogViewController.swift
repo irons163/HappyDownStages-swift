@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WinDialogViewController: UIViewController {
+final class WinDialogViewController: UIViewController {
 
     weak var gameDelegate: GameDelegate?
     var level: Int = 0

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameLevelViewController: UIViewController {
+final class GameLevelViewController: UIViewController {
 
     @IBOutlet weak var girlCheckView: UIImageView!
     @IBOutlet weak var boyCheckView: UIImageView!

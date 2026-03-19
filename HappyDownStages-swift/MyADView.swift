@@ -8,10 +8,10 @@
 import SpriteKit
 import UIKit
 
-class MyADView: SKSpriteNode {
+final class MyADView: SKSpriteNode {
     
     static func createMyADView() -> MyADView {
-        return MyADView(color: .clear, size: CGSize(width: 300, height: 250)) // adjust size as needed
+        return MyADView(color: .clear, size: AppConstants.Ads.defaultAdSize) // adjust size as needed
     }
 
     var adClickable: Bool = false
@@ -25,42 +25,36 @@ class MyADView: SKSpriteNode {
     func startAd() {
         adClickable = true
 
-        let catAdImageName = Bool.random() ? "unlimited_cat_world_ad" : "UnlimitedCatWorld_ad"
-        
+        let fallbackCatAdName = AppConstants.Ads.catAdNames.first ?? "unlimited_cat_world_ad"
+        let catAdImageName = AppConstants.Ads.catAdNames.randomElement() ?? fallbackCatAdName
+
         ads = [
-            SKTexture(imageNamed: "ad1.jpg"),
-            SKTexture(imageNamed: NSLocalizedString("cat_shoot_ad", comment: "")),
-            SKTexture(imageNamed: "2048_ad"),
-            SKTexture(imageNamed: "Shoot_Learning_ad"),
-            SKTexture(imageNamed: "cute_dudge_ad"),
+            SKTexture(imageNamed: AppConstants.Ads.imageNames[0]),
+            SKTexture(imageNamed: NSLocalizedString(AppConstants.Ads.localizedCatShootKey, comment: "")),
+            SKTexture(imageNamed: AppConstants.Ads.imageNames[1]),
+            SKTexture(imageNamed: AppConstants.Ads.imageNames[2]),
+            SKTexture(imageNamed: AppConstants.Ads.imageNames[3]),
             SKTexture(imageNamed: catAdImageName)
         ]
-        
-        adsUrl = [
-            "http://itunes.apple.com/us/app/good-sleeper-counting-sheep/id998186214?l=zh&ls=1&mt=8",
-            "http://itunes.apple.com/us/app/attack-on-giant-cat/id1000152033?l=zh&ls=1&mt=8",
-            "https://itunes.apple.com/us/app/2048-chinese-zodiac/id1024333772?l=zh&ls=1&mt=8",
-            "https://itunes.apple.com/us/app/shoot-learning-math/id1025414483?l=zh&ls=1&mt=8",
-            "https://itunes.apple.com/us/app/cute-dodge/id1018590182?l=zh&ls=1&mt=8",
-            "https://itunes.apple.com/us/app/unlimited-cat-world/id1000573724?l=zh&ls=1&mt=8"
-        ]
-        
+
+        adsUrl = AppConstants.Ads.urls
+
         adIndex = 0
         self.texture = ads[adIndex]
-        
-        Timer.scheduledTimer(timeInterval: 2.0,
+
+        Timer.scheduledTimer(timeInterval: AppConstants.Ads.changeInterval,
                              target: self,
                              selector: #selector(changeAd),
                              userInfo: nil,
                              repeats: true)
 
-        button = SKSpriteNode(imageNamed: "btn_Close-hd")
-        button.size = CGSize(width: 30, height: 30)
+        button = SKSpriteNode(imageNamed: AppConstants.Ads.closeButtonImageName)
+        button.size = AppConstants.Ads.closeButtonSize
         button.position = CGPoint(x: self.size.width / 2 - button.size.width, y: self.size.height - button.size.height)
         button.anchorPoint = CGPoint(x: 0, y: 0)
         button.zPosition = 5
         addChild(button)
-        
+
         enableHideButton = false
         button.isHidden = !enableHideButton
     }

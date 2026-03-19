@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class Footboard: SKSpriteNode {
+final class Footboard: SKSpriteNode {
     
     enum ToolType: Int {
         case notool = 0

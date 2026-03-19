@@ -10,7 +10,7 @@ import CoreData
 import StoreKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var launchCount = 0
@@ -39,8 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        launchCount = UserDefaults.standard.integer(forKey: "launchCount") + 1
-        UserDefaults.standard.set(launchCount, forKey: "launchCount")
+        launchCount = UserDefaults.standard.integer(forKey: AppConstants.UserDefaultsKey.launchCount) + 1
+        UserDefaults.standard.set(launchCount, forKey: AppConstants.UserDefaultsKey.launchCount)
 
         if launchCount == 10 {
             requestReview()

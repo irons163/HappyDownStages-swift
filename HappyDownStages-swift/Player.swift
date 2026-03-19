@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class Player: SKSpriteNode {
+final class Player: SKSpriteNode {
 
     private var bitmapUtil = BitmapUtil.shared
     private var commonUtil = CommonUtil.shared

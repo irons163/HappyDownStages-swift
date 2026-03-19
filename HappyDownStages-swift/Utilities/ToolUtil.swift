@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class ToolUtil: SKSpriteNode {
+final class ToolUtil: SKSpriteNode {
 
     var isExploding: Bool = false
 

@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class CommonUtil: SKSpriteNode {
+final class CommonUtil: SKSpriteNode {
 
     static let shared = CommonUtil()
 

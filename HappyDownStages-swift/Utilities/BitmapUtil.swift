@@ -8,7 +8,7 @@
 import SpriteKit
 import UIKit
 
-class BitmapUtil {
+final class BitmapUtil {
 
     static let shared = BitmapUtil()
 

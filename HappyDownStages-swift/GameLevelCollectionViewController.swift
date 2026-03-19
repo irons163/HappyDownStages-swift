@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameLevelCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+final class GameLevelCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -44,7 +44,7 @@ class GameLevelCollectionViewController: UIViewController, UICollectionViewDataS
         }
 
         if let photoImageView3 = cell.viewWithTag(300) as? UIImageView {
-            let maxLevel = UserDefaults.standard.integer(forKey: "level")
+            let maxLevel = UserDefaults.standard.integer(forKey: AppConstants.UserDefaultsKey.level)
             photoImageView3.isHidden = indexPath.item <= maxLevel
         }
 
@@ -56,7 +56,7 @@ class GameLevelCollectionViewController: UIViewController, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let gameLevelVC = storyboard?.instantiateViewController(withIdentifier: "GameLevelViewController") as? GameLevelViewController {
             let willPlayLevel = indexPath.item
-            UserDefaults.standard.set(willPlayLevel, forKey: "willPlaylevel")
+            UserDefaults.standard.set(willPlayLevel, forKey: AppConstants.UserDefaultsKey.willPlayLevel)
             UserDefaults.standard.synchronize()
 
             navigationController?.pushViewController(gameLevelVC, animated: true)

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GameOverViewController: UIViewController, UITextFieldDelegate {
+final class GameOverViewController: UIViewController, UITextFieldDelegate {
     
     weak var gameDelegate: GameDelegate?
     

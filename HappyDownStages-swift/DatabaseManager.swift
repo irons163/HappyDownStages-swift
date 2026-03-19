@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 import UIKit
 
-class DatabaseManager {
+final class DatabaseManager {
 
     static let shared = DatabaseManager()
     private init() {}

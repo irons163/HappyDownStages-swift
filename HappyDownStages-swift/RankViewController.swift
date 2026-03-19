@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+final class RankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     

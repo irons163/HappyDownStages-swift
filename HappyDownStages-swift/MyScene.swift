@@ -8,7 +8,7 @@
 import SpriteKit
 import GameplayKit // For potential random number generation, though arc4random is used
 
-class MyScene: SKScene {
+final class MyScene: SKScene {
 
     // MARK: - Static Properties & Constants
 
@@ -1340,10 +1340,10 @@ class MyScene: SKScene {
         // Determine win/lose and act accordingly
         if gameSuccess {
              // Save progress if needed
-             let maxLevel = UserDefaults.standard.integer(forKey: "level")
+             let maxLevel = UserDefaults.standard.integer(forKey: AppConstants.UserDefaultsKey.level)
              if maxLevel < MyScene.infinityLevel && level >= maxLevel {
                  let nextLevel = level + 1 // Should be maxLevel + 1? Check Obj-C logic carefully
-                 UserDefaults.standard.set(nextLevel, forKey: "level")
+                 UserDefaults.standard.set(nextLevel, forKey: AppConstants.UserDefaultsKey.level)
                  // UserDefaults.standard.synchronize() // synchronize() often not needed now
              }
              // Show win dialog via delegate
@@ -1363,7 +1363,7 @@ class MyScene: SKScene {
         let finalScore = timeScore + countScore // Combine scores? Obj-C logic was a bit ambiguous: GAME_TIME * level * SCORE_MULTIPLE + count * SCORE_MULTIPLE
 
         // Report score to Game Center
-        GameCenterUtil.shared.reportScore(Int64(finalScore), forCategory: "com.irons.HappyDownStages") // Use correct leaderboard ID
+        GameCenterUtil.shared.reportScore(Int64(finalScore), forCategory: AppConstants.Leaderboard.reportId)
 
         // Show lose dialog via delegate
         gameDelegate?.showLoseDialog(score: finalScore)

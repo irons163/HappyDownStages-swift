@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class FireBall: SKSpriteNode {
+final class FireBall: SKSpriteNode {
 
     private var screenWidth: Int = 0
     private var whichForFireBall: Int = 0

@@ -8,7 +8,7 @@
 import SpriteKit
 import UIKit
 
-class TextureHelper {
+final class TextureHelper {
 
     private static var hand1Textures: [SKTexture] = []
     private static var hand2Textures: [SKTexture] = []

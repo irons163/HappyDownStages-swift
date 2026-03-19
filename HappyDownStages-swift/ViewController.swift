@@ -16,7 +16,7 @@ protocol GameDelegate: AnyObject {
     func restart()
 }
 
-class ViewController: UIViewController, GameDelegate {
+final class ViewController: UIViewController, GameDelegate {
 
     var winDialogViewController: WinDialogViewController?
     var level: Int = 0
@@ -29,7 +29,7 @@ class ViewController: UIViewController, GameDelegate {
         skView.showsFPS = true
         skView.showsNodeCount = true
 
-        let willPlayLevel = UserDefaults.standard.integer(forKey: "willPlaylevel")
+        let willPlayLevel = UserDefaults.standard.integer(forKey: AppConstants.UserDefaultsKey.willPlayLevel)
         level = willPlayLevel
 
         let background = TextureHelper.backgrounds()[willPlayLevel]

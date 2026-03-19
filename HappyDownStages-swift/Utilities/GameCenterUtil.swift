@@ -13,7 +13,7 @@ protocol PauseGameDelegate: AnyObject {
     func pauseGame()
 }
 
-class GameCenterUtil: NSObject, GKGameCenterControllerDelegate {
+final class GameCenterUtil: NSObject, GKGameCenterControllerDelegate {
     
     static let shared = GameCenterUtil()
     weak var delegate: PauseGameDelegate?
@@ -91,14 +91,14 @@ class GameCenterUtil: NSObject, GKGameCenterControllerDelegate {
     }
     
     private func storeScoreForLater(_ scoreData: Data) {
-        var savedScores = UserDefaults.standard.array(forKey: "savedScores") as? [Data] ?? []
+        var savedScores = UserDefaults.standard.array(forKey: AppConstants.UserDefaultsKey.savedScores) as? [Data] ?? []
         savedScores.append(scoreData)
-        UserDefaults.standard.set(savedScores, forKey: "savedScores")
+        UserDefaults.standard.set(savedScores, forKey: AppConstants.UserDefaultsKey.savedScores)
     }
     
     func submitAllSavedScores() {
-        guard var savedScores = UserDefaults.standard.array(forKey: "savedScores") as? [Data] else { return }
-        UserDefaults.standard.removeObject(forKey: "savedScores")
+        guard var savedScores = UserDefaults.standard.array(forKey: AppConstants.UserDefaultsKey.savedScores) as? [Data] else { return }
+        UserDefaults.standard.removeObject(forKey: AppConstants.UserDefaultsKey.savedScores)
         
         for scoreData in savedScores {
             if let scoreReporter = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(scoreData) as? GKScore {
@@ -119,7 +119,7 @@ class GameCenterUtil: NSObject, GKGameCenterControllerDelegate {
     func showGameCenter(from viewController: UIViewController) {
         let gcViewController = GKGameCenterViewController()
         gcViewController.gameCenterDelegate = self
-        gcViewController.leaderboardIdentifier = "com.xxxx.test"
+        gcViewController.leaderboardIdentifier = AppConstants.Leaderboard.displayId
         gcViewController.leaderboardTimeScope = .allTime
         
         viewController.present(gcViewController, animated: true) {
