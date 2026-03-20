@@ -21,4 +21,20 @@ extension MyScene {
     func setAdClickable(_ clickable: Bool) {
         myAdView?.adClickable = clickable
     }
+
+    func dequeueFootboard() -> Footboard {
+        if let board = footboardPool.popLast() {
+            return board
+        }
+        return Footboard(texture: nil)
+    }
+
+    func recycleFootboard(_ board: Footboard) {
+        board.tool?.removeFromParent()
+        board.tool = nil
+        board.toolNum = Footboard.NOTOOL
+        board.removeAllActions()
+        board.removeFromParent()
+        footboardPool.append(board)
+    }
 }

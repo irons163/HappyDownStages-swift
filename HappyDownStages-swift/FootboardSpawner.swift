@@ -89,10 +89,9 @@ final class FootboardSpawner {
                 // Spawn below the screen view
                 let spawnY: CGFloat = offsetY - scene.footboardHeight // Adjust if anchor point is not (0,1)
 
-                // NSLog("new footboard X = %f", newX) // Use print() in Swift
-                print("New footboard X = \(newX)")
+                // Debug logging removed for performance
 
-                let newBoard = Footboard(texture: nil) // Use appropriate initializer
+                let newBoard = scene.dequeueFootboard() // Reuse from pool when available
                 newBoard.setFrame(x: newX, y: spawnY, h: scene.footboardHeight, w: scene.footboardWidth) // Use the Footboard's method
                 newBoard.anchorPoint = CGPoint(x: 0, y: 1) // Match Obj-C
                 newBoard.position = CGPoint(x: newX, y: spawnY) // Set position

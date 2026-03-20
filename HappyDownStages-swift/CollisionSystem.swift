@@ -21,6 +21,12 @@ final class CollisionSystem {
         var destoryedFootboardIndex: Int?
         var linesToRemove: IndexSet = []
 
+        guard let player = scene.player else { return }
+        let playerFrame = player.calculateAccumulatedFrame()
+        let playerLeftX = player.position.x - player.size.width * player.anchorPoint.x + MyScene.smoothDeviation * 2
+        let playerRightX = player.position.x + player.size.width * (1.0 - player.anchorPoint.x) - MyScene.smoothDeviation * 2
+        let playerBottomY = player.position.y - player.size.height * player.anchorPoint.y
+
         for (lineIndex, line) in scene.footboards.enumerated() {
             var boardsToRemoveInLine: IndexSet = []
 
@@ -38,14 +44,7 @@ final class CollisionSystem {
                 updateToolForBoard(board)
 
                 // --- Player Collision Check ---
-                guard let player = scene.player else { continue }
-
                 // Check for landing collision (player's bottom edge vs board's top edge)
-                let playerBottomY = player.position.y - player.size.height * player.anchorPoint.y
-                let playerTopY = player.position.y + player.size.height * (1.0 - player.anchorPoint.y)
-                _ = playerTopY
-                let playerLeftX = player.position.x - player.size.width * player.anchorPoint.x + MyScene.smoothDeviation * 2 // Adjusted collision box
-                let playerRightX = player.position.x + player.size.width * (1.0 - player.anchorPoint.x) - MyScene.smoothDeviation * 2 // Adjusted collision box
 
                 let boardTopY = board.position.y // Since anchor is (0,1)
                 let boardBottomY = board.position.y - board.size.height
@@ -71,7 +70,11 @@ final class CollisionSystem {
                         handleBoardLandingEffect(board, &isInjure)
 
                         // Handle tool collision *on landing*
-                        handleToolCollision(board, &isInjure)
+                        if let tool = board.tool {
+                            var toolFrame = tool.calculateAccumulatedFrame()
+                            toolFrame = toolFrame.insetBy(dx: -10, dy: -20)
+                            handleToolCollision(board, &isInjure, playerFrame: playerFrame, toolFrame: toolFrame)
+                        }
 
                         scene.state.playerDownOnFootBoard = false // Reset flag indicating falling state
                     }
@@ -87,36 +90,37 @@ final class CollisionSystem {
                 // --- Tool Collision Check (General Overlap, not just landing) ---
                 // This might be redundant if handled on landing, or needed if tools activate without landing (e.g., proximity mine)
                 if let tool = board.tool, board.toolNum != Footboard.BOMB_EXPLODE { // Don't check collision with explosion itself here
-                    let toolFrame = tool.calculateAccumulatedFrame() // Get tool's frame in scene coordinates
-                    let playerFrame = player.calculateAccumulatedFrame()
+                    var toolFrame = tool.calculateAccumulatedFrame() // Get tool's frame in scene coordinates
+                    if toolFrame.maxY < -scene.footboardHeight || toolFrame.minY > scene.sceneHeight + scene.footboardHeight {
+                        continue
+                    }
+                    toolFrame = toolFrame.insetBy(dx: -10, dy: -20)
 
                     if playerFrame.intersects(toolFrame) {
                         // Handle collision even if not landing (e.g., moving sideways on a board)
-                        handleToolCollision(board, &isInjure)
+                        handleToolCollision(board, &isInjure, playerFrame: playerFrame, toolFrame: toolFrame)
                     }
                 }
             } // End loop through boards in line
 
             if let footboard = destoryedFootboard, let footboardIndex = destoryedFootboardIndex {
-                footboard.tool?.removeFromParent()
-                footboard.removeFromParent()
+                scene.recycleFootboard(footboard)
                 scene.footboards[lineIndex].remove(at: footboardIndex)
                 destoryedFootboard = nil
                 destoryedFootboardIndex = nil
             }
 
-            // Remove boards marked for removal from this line
-            // Iterate backwards to avoid index issues
-            for index in boardsToRemoveInLine.reversed() {
-                let boardToRemove = line[index]
-                boardToRemove.tool?.removeFromParent() // Remove associated tool node
-                boardToRemove.removeFromParent()
-                // scene.footboards[lineIndex].remove(at: index) // Modify copy, not original during iteration
+            if !boardsToRemoveInLine.isEmpty {
+                for index in boardsToRemoveInLine.reversed() {
+                    let boardToRemove = line[index]
+                    scene.recycleFootboard(boardToRemove)
+                }
+                let newLine = line.enumerated().filter { !boardsToRemoveInLine.contains($0.offset) }.map { $0.element }
+                scene.footboards[lineIndex] = newLine
             }
-            // Update the original array outside the inner loop if modifying a mutable copy isn't feasible
-            // Or reconstruct the line: scene.footboards[lineIndex] = line.enumerated().filter { !boardsToRemoveInLine.contains($0.offset) }.map { $0.element }
 
-            if line.isEmpty || boardsToRemoveInLine.count == line.count {
+            let updatedLine = scene.footboards[lineIndex]
+            if updatedLine.isEmpty {
                 linesToRemove.insert(lineIndex) // Mark the whole line for removal if empty
             }
         } // End loop through lines
@@ -261,17 +265,12 @@ final class CollisionSystem {
         }
     }
 
-    private func handleToolCollision(_ board: Footboard, _ isInjure: inout Bool) {
+    private func handleToolCollision(_ board: Footboard,
+                                     _ isInjure: inout Bool,
+                                     playerFrame: CGRect,
+                                     toolFrame: CGRect) {
         guard let scene = scene else { return }
         guard let tool = board.tool, board.toolNum != Footboard.BOMB_EXPLODE else { return }
-
-        // Check collision based on player frame and tool frame
-        guard let player = scene.player else { return }
-        var toolFrame = tool.calculateAccumulatedFrame()
-        let playerFrame = player.calculateAccumulatedFrame()
-
-        // Expand tool hitbox to better match visuals and top-of-board contact
-        toolFrame = toolFrame.insetBy(dx: -10, dy: -20)
 
         // Use intersects for frame collision detection
         if playerFrame.intersects(toolFrame) {

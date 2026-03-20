@@ -65,6 +65,7 @@ final class MyScene: SKScene {
     var initialFootboard: Footboard? // The very first footboard
     var currentXs: [CGFloat] = [] // X-positions for next footboard generation line
     var footboards: [[Footboard]] = [] // Array of arrays (lines) of footboards
+    var footboardPool: [Footboard] = []
     // var footboardsTheSameLine: [Footboard] = [] // Temp var, better handled locally
     var fireballs: [FireBall] = []
     var randomBackgroundIDs: [String] = ["bg01", "bg02", "bg03"] // Background names
