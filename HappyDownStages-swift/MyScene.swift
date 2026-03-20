@@ -45,6 +45,10 @@ final class MyScene: SKScene {
     // State
     var state = GameState()
 
+    // Systems
+    lazy var collisionSystem = CollisionSystem(scene: self)
+    lazy var footboardSpawner = FootboardSpawner(scene: self)
+
     // Timing
     var gameTimer: Timer?
     var readyTimer: Timer?

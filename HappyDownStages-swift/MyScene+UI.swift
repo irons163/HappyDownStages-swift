@@ -12,17 +12,27 @@ extension MyScene {
     // MARK: - UI Updates
 
     func initTimeNode() {
-        let timeNodeSize = CGSize(width: 30, height: 30)
+        let timeNodeSize = CGSize(width: 36, height: 36)
         let timeTextures = TextureHelper.timeTextures()
+        let hasTimeImages = TextureHelper.timeImages().count >= 10
         guard timeTextures.count > 10 else {
             print("Error: Missing time textures")
             return
         }
-        let yPos = sceneHeight - timeNodeSize.height / 2 - 45 - 50 // Match Obj-C positioning
+        let adBottomY: CGFloat
+        if let adView = myAdView {
+            adBottomY = adView.position.y - adView.size.height
+        } else {
+            let topInset = view?.safeAreaInsets.top ?? 0
+            adBottomY = sceneHeight - topInset
+        }
+        let yPos = adBottomY - timeNodeSize.height / 2 - 6 // Keep timer below ad bar
+        let totalWidth = timeNodeSize.width * 5
+        let startX = (sceneWidth - totalWidth) / 2 + timeNodeSize.width * 0.5
 
         timeMinuteTensDigital = SKSpriteNode(texture: timeTextures[0])
         timeMinuteTensDigital?.size = timeNodeSize
-        timeMinuteTensDigital?.position = CGPoint(x: 0 + timeNodeSize.width * 0.5, y: yPos)
+        timeMinuteTensDigital?.position = CGPoint(x: startX, y: yPos)
 
         timeMinuteSingalDigital = SKSpriteNode(texture: timeTextures[0])
         timeMinuteSingalDigital?.size = timeNodeSize
@@ -43,9 +53,14 @@ extension MyScene {
         // Add nodes to scene
         [timeMinuteTensDigital, timeMinuteSingalDigital, timeQmark, timeScecondTensDigital, timeSecondSingalDigital].forEach { node in
             if let node = node {
-                node.zPosition = 50
+                node.zPosition = 120
                 addChild(node)
             }
+        }
+
+        // Fallback to label if image assets are missing
+        if !hasTimeImages {
+            setTimerFallbackVisible(true, yPos: yPos)
         }
     }
 
@@ -57,7 +72,13 @@ extension MyScene {
             displayTime = state.gameTimerCount // Count up for infinity mode
         }
 
-        // gameTimerLabel?.text = "\(displayTime)" // Update simple label if used
+        if TextureHelper.timeImages().count < 10 {
+            setTimerFallbackVisible(true, yPos: timeMinuteTensDigital?.position.y ?? 0)
+            gameTimerLabel?.text = formatTime(displayTime)
+            return
+        } else {
+            setTimerFallbackVisible(false, yPos: 0)
+        }
 
         // Update digital display nodes
         let minutes = displayTime / 60
@@ -77,6 +98,25 @@ extension MyScene {
         return textures[digit]
     }
 
+    private func setTimerFallbackVisible(_ isVisible: Bool, yPos: CGFloat) {
+        gameTimerLabel?.isHidden = !isVisible
+        if isVisible {
+            gameTimerLabel?.fontSize = 22
+            gameTimerLabel?.fontColor = .white
+            gameTimerLabel?.zPosition = 121
+            gameTimerLabel?.position = CGPoint(x: frame.midX, y: yPos)
+        }
+        [timeMinuteTensDigital, timeMinuteSingalDigital, timeQmark, timeScecondTensDigital, timeSecondSingalDigital].forEach { node in
+            node?.isHidden = isVisible
+        }
+    }
+
+    private func formatTime(_ totalSeconds: Int) -> String {
+        let minutes = totalSeconds / 60
+        let seconds = totalSeconds % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+
     func changeHpBar() {
         guard let lifeNode = lifeNode, let lifeBgNode = lifeBgNode else { return }
 
@@ -89,7 +129,9 @@ extension MyScene {
         let hpBarWidth = maxFillWidth * (currentLife / maxLife)
 
         // Positioning (Top Right)
-        let yPos = sceneHeight - lifeNode.size.height / 2 - 45 - 50 // Match timer Y pos? Adjust as needed
+        let topInset = view?.safeAreaInsets.top ?? 0
+        let adHeight = myAdView?.size.height ?? 0
+        let yPos = sceneHeight - lifeNode.size.height / 2 - topInset - adHeight - 8 // Avoid status bar + ad
         let offsetX: CGFloat = 15 // Offset from the right edge
 
         // Set sizes

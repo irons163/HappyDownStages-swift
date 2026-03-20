@@ -13,12 +13,34 @@ final class GameLevelCollectionViewController: UIViewController, UICollectionVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Additional setup if needed
+
+        view.backgroundColor = .black
+        collectionView.backgroundColor = .clear
+        collectionView.contentInset = UIEdgeInsets(top: 60, left: 0, bottom: 20, right: 0)
+        collectionView.scrollIndicatorInsets = collectionView.contentInset
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.reloadData()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateLayout()
+    }
+
+    private func updateLayout() {
+        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        let safeWidth = view.safeAreaLayoutGuide.layoutFrame.width
+        let columns: CGFloat = safeWidth > 360 ? 3 : 2
+        let spacing: CGFloat = 12
+        let totalSpacing = (columns + 1) * spacing
+        let itemWidth = floor((safeWidth - totalSpacing) / columns)
+        layout.minimumInteritemSpacing = spacing
+        layout.minimumLineSpacing = spacing
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
     }
 
     // MARK: - UICollectionViewDataSource

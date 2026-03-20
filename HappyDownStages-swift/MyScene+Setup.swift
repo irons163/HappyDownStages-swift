@@ -128,7 +128,7 @@ extension MyScene {
             return
         }
 
-        createFootboards(offsetY: 100)
+        footboardSpawner.createFootboards(offsetY: 100)
 
         // Player Setup (Ensure bitmapUtil provides textures/sizes)
         guard let playerTexture = bitmapUtil.player_girl_left01_bitmap,

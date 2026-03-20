@@ -28,7 +28,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="50" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play_board_bg.png" id="gF0-dy-9FB">
+                                <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleAspectFill" clipsSubviews="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play_board_bg.png" id="gF0-dy-9FB">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
@@ -123,7 +123,7 @@
                                 <rect key="frame" x="98" y="209" width="20" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="en_mainmenu.png" translatesAutoresizingMaskIntoConstraints="NO" id="18D-mY-TYv">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" clipsSubviews="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="en_mainmenu.png" translatesAutoresizingMaskIntoConstraints="NO" id="18D-mY-TYv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -189,7 +189,7 @@
                                     <action selector="goToMenuClick:" destination="OZx-XM-U0f" eventType="touchUpInside" id="LNQ-4j-68B"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="win.png" translatesAutoresizingMaskIntoConstraints="NO" id="khh-GA-F7V">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" clipsSubviews="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="win.png" translatesAutoresizingMaskIntoConstraints="NO" id="khh-GA-F7V">
                                 <rect key="frame" x="0.0" y="96" width="309" height="102"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -219,7 +219,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="en_player_selector_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="JPS-jf-P4w">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" clipsSubviews="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="en_player_selector_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="JPS-jf-P4w">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                             </imageView>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="check_btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="4x8-E6-Ddh">
@@ -347,7 +347,7 @@
                                     <action selector="goToMenu:" destination="WSW-ZI-9Bc" eventType="touchUpInside" id="wSu-a3-aKZ"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="game_over.png" translatesAutoresizingMaskIntoConstraints="NO" id="zW5-WK-buo">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" clipsSubviews="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="game_over.png" translatesAutoresizingMaskIntoConstraints="NO" id="zW5-WK-buo">
                                 <rect key="frame" x="5" y="65" width="311" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -380,6 +380,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="titleImageView" destination="zW5-WK-buo" id="TIV-8q-1dL"/>
                         <outlet property="gameOverTitleLabel" destination="lhU-Qo-uCv" id="JBh-5v-rGM"/>
                         <outlet property="gameScoreLabel" destination="JjU-sC-5b2" id="3y2-fv-4uC"/>
                         <outlet property="nameEditView" destination="zJB-ld-pPc" id="MJJ-wL-WDF"/>
@@ -402,7 +403,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="play_board_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="2nN-C2-MQa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" clipsSubviews="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="play_board_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="2nN-C2-MQa">
                                 <rect key="frame" x="0.0" y="-2" width="320" height="572"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -466,7 +467,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rank_bot.png" translatesAutoresizingMaskIntoConstraints="NO" id="f6u-OH-hXS">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" clipsSubviews="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rank_bot.png" translatesAutoresizingMaskIntoConstraints="NO" id="f6u-OH-hXS">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
