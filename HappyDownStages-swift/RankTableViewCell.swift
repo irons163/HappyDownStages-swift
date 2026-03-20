@@ -9,9 +9,9 @@ import UIKit
 
 final class RankTableViewCell: UITableViewCell {
     
-    @IBOutlet private var rankLabel: UILabel!
-    @IBOutlet private var scoreLabel: UILabel!
-    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet var rankLabel: UILabel!
+    @IBOutlet var scoreLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
     private let backgroundImageView = UIImageView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

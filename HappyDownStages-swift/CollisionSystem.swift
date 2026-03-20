@@ -91,9 +91,8 @@ final class CollisionSystem {
                     let playerFrame = player.calculateAccumulatedFrame()
 
                     if playerFrame.intersects(toolFrame) {
-                        // Handle collision even if not landing (e.g., running past a tree)
-                        // Re-evaluate if handleToolCollision on landing is sufficient
-                        // handleToolCollision(board, &isInjure) // Careful not to double-trigger
+                        // Handle collision even if not landing (e.g., moving sideways on a board)
+                        handleToolCollision(board, &isInjure)
                     }
                 }
             } // End loop through boards in line
@@ -268,8 +267,11 @@ final class CollisionSystem {
 
         // Check collision based on player frame and tool frame
         guard let player = scene.player else { return }
-        let toolFrame = tool.calculateAccumulatedFrame()
+        var toolFrame = tool.calculateAccumulatedFrame()
         let playerFrame = player.calculateAccumulatedFrame()
+
+        // Expand tool hitbox to better match visuals and top-of-board contact
+        toolFrame = toolFrame.insetBy(dx: -10, dy: -20)
 
         // Use intersects for frame collision detection
         if playerFrame.intersects(toolFrame) {
